@@ -17,7 +17,7 @@ namespace _GameCore.Scripts
 
       private void FixedUpdate()
       {
-         Move();
+        
       }
 
       void Look()
@@ -28,6 +28,7 @@ namespace _GameCore.Scripts
             var rot = Quaternion.LookRotation(relative,Vector3.up);
 
             transform.rotation = rot;
+            Move();
          }
       }
 
