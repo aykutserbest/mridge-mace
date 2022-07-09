@@ -5,21 +5,24 @@ using UnityEngine;
 
 public class CharacterGeneralController : MonoBehaviour
 {
-    public static Vector3 EmptySlotPos;
     public static GameObject brickSlotObj;
-    private float _brickSlotObjYPos;
-    [SerializeField] private float multiplier;
+    public static float _brickSlotObjYPos;
+    
+    public enum ColorEnum {  Red, Yellow, Blue };
+
+    [SerializeField] public ColorEnum characterEnum;
+    
+    private float _multiplier;
 
     private void Start()
     {
-        multiplier = 1;
-        brickSlotObj = GameObject.Find("BrickSlot");
+        _multiplier = 1;
+        brickSlotObj = GameObject.Find("slot1");
     }
 
     private void OnEnable()
     {
         
-
         EventManager.OnBrickEnter += SetEmpySlotPos;
     }
 
@@ -30,12 +33,10 @@ public class CharacterGeneralController : MonoBehaviour
 
     void SetEmpySlotPos()
     {
-        //valuable for y / digerlerini sabitleme
+        _brickSlotObjYPos = brickSlotObj.transform.localPosition.y + (0.6f * _multiplier);
+        _multiplier++;
         
-        EmptySlotPos = brickSlotObj.transform.position;
-        _brickSlotObjYPos = EmptySlotPos.y + (0.1f * multiplier);
-        EmptySlotPos = new Vector3(EmptySlotPos.x, _brickSlotObjYPos, EmptySlotPos.z);
-        multiplier++;
+        Debug.Log("_brickSlotObjYPos "+_brickSlotObjYPos + " multiplier " + _multiplier);
     }
     
     
