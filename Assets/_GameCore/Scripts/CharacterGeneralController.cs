@@ -14,9 +14,8 @@ public class CharacterGeneralController : MonoBehaviour
 
     [SerializeField] public ColorEnum characterEnum;
     
-    
-    
     private float _multiplier;
+    private int _index;
 
     private void Start()
     {
@@ -40,13 +39,15 @@ public class CharacterGeneralController : MonoBehaviour
     {
         _brickSlotObjYPos = brickSlotObj.transform.localPosition.y + (0.6f * _multiplier);
         _multiplier++;
-        
-        Debug.Log("_brickSlotObjYPos "+_brickSlotObjYPos + " multiplier " + _multiplier);
     }
     
     void MoveToBridge(GameObject targetSlot, int index)
     {
-        var obj = characterCarryBricks[index];
+        
+        var lastItemIndex = characterCarryBricks.Count-1;
+        Debug.Log("ilk index count -1 li : " + lastItemIndex);
+        
+        var obj = characterCarryBricks[lastItemIndex];
         var transform1 = targetSlot.transform;
         obj.transform.parent = targetSlot.transform;
         
@@ -56,17 +57,22 @@ public class CharacterGeneralController : MonoBehaviour
            0
         ),1);
         
-        /*
-        obj.transform.DOLocalMove(new Vector3(
-            transform1.localPosition.x,
-            transform1.localPosition.y,
-            transform1.localPosition.z
-        ),1);*/
-        
-        
-        
         obj.transform.rotation = new Quaternion(0, 0, 0,0);
         
+        var lastItem = characterCarryBricks[lastItemIndex];
+        
+        characterCarryBricks.RemoveAt(characterCarryBricks.Count-1);
+       
+        StartCoroutine(BridgeBrickProcess(lastItem));
     }
-    
+
+    IEnumerator BridgeBrickProcess(GameObject lastItem)
+    {
+        yield return new WaitForSeconds(2);
+        lastItem.transform.GetComponent<BrickController>().enabled = false;
+        lastItem.transform.GetComponent<BoxCollider>().enabled = true;
+        lastItem.transform.GetComponent<BoxCollider>().isTrigger = false;
+       
+        
+    }
 }

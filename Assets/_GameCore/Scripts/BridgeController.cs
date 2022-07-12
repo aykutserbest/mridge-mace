@@ -27,4 +27,6 @@ public class BridgeController : MonoBehaviour
         EventManager.PutBrickAtBridge?.Invoke(bridgeSlotArray[_index],_index); 
         _index++;
     }
+    
+    
 }

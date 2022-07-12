@@ -54,6 +54,7 @@ public class BrickController : MonoBehaviour
     {
        yield return new WaitForSeconds(1);
        gameObject.GetComponent<TrailRenderer>().enabled = false;
+       
     }
 
     void GenerateBrick()
@@ -68,8 +69,6 @@ public class BrickController : MonoBehaviour
         yield return new WaitForSeconds(3);
         cloneBrick.SetActive(true);
     }
-    
-   
-    
-    
+
+
 }
