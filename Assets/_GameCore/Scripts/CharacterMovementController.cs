@@ -15,11 +15,6 @@ namespace _GameCore.Scripts
          Look();
       }
 
-      private void FixedUpdate()
-      {
-        
-      }
-
       void Look()
       {
          if (_input != Vector3.zero)
