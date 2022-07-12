@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4404101747781084161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.33439144, y: 0.082349926, z: 0.13838452}
+  m_LocalScale: {x: 0.9965197, y: 0.082349926, z: 0.13838452}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 88f997d2b7e9f044cabb6c36a81f6f99, type: 2}
+  - {fileID: 2100000, guid: 37fce16357403f34fb0d5d1f191545d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,8 +97,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.263897, z: 1}
-  m_Center: {x: 0, y: 1.1319476, z: 0}
+  m_Size: {x: 1, y: 2.9084063, z: 1}
+  m_Center: {x: 0, y: 0.9542013, z: 0}
 --- !u!114 &-136566682998631330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d859cc6cf5a02e54c933283102219034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brickColor: 2
 --- !u!96 &1410203394
 TrailRenderer:
   serializedVersion: 2
