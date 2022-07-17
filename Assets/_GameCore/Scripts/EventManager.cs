@@ -8,6 +8,7 @@ public static class EventManager
 
     public static Action OnBrickEnter;
     public static Action<GameObject,int> PutBrickAtBridge;
+    public static Action ContinueBrickToBridge;
 
 
 
